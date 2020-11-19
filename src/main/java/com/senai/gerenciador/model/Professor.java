@@ -1,29 +1,33 @@
 package com.senai.gerenciador.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity // 
-public class Professor {
+@Entity //
+public class Professor implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-  @Id 
-  @GeneratedValue 
-  private int ID_PROFESSOR;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int ID_PROFESSOR;
 
-  @Column(nullable = false)
-  private String NOME;
+    @Column(nullable = false)
+    private String NOME;
 
-  protected Professor() {
-      
-  }
+    protected Professor() {
 
-  public Professor(String nome){
-      this.NOME = nome;
-  }
+    }
 
-     public int getID_PROFESSOR() {
+    public Professor(String nome) {
+        this.NOME = nome;
+    }
+
+    public int getID_PROFESSOR() {
         return this.ID_PROFESSOR;
     }
 
